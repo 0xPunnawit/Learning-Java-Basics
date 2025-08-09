@@ -47,8 +47,8 @@ public class Singly_Linked {
                 curr.next = null;                           // Node ที่ถูกลบไม่ชี้ไปไหน
                 return;
             }
-            prev = curr;
-            curr = curr.next;
+            prev = curr;                                    // เลื่อน prev ไปที่ Node ปัจจุบัน
+            curr = curr.next;                               // เลื่อน curr ไปที่ Node ถัดไป
         }
     }
 
@@ -56,31 +56,31 @@ public class Singly_Linked {
         var currNode = head;
         while (currNode != null) {
             if (currNode.data.equals(searchTarget)) {
-                insertNext(currNode, newNode);
+                insertNext(currNode, newNode);              // แทรก Node ใหม่หลัง Node ปัจจุบัน
             }
-                currNode = currNode.next;
+                currNode = currNode.next;                   // เลื่อน currNode ไปที่ Node ถัดไป
         }
     }
 
     private static void insertNext(ListNode<String> target, ListNode<String> newNode) {
-        ListNode<String> tmp = target.next;
-        target.next = newNode;
-        newNode.next = tmp;
+        ListNode<String> tmp = target.next;                 // เก็บตัวชี้ไปยัง Node ถัดไป
+        target.next = newNode;                              // เชื่อม target ไปยัง newNode
+        newNode.next = tmp;                                 // เชื่อม newNode ไปยัง Node ถัดไปที่เก็บไว้ใน tmp
     }
 
     private static String traverseLinkedList(ListNode<String> head) {
         List<String> traverResult = new ArrayList<>();
-        var currNode = head;
+        var currNode = head;                                // เริ่มต้นจาก head
         while (currNode != null) {
-            traverResult.add(currNode.data);
-            currNode = currNode.next;
+            traverResult.add(currNode.data);                // เก็บข้อมูลใน List
+            currNode = currNode.next;                       // เลื่อน currNode ไปที่ Node ถัดไป
         }
-        return String.join("->", traverResult);
+        return String.join("->", traverResult);     // ส่งคืนข้อมูลที่เก็บใน List โดยเชื่อมข้อมูลแต่ละตัวด้วย "->"
     }
 
     private static class ListNode<T> {
-        public T data;
-        public ListNode<T> next;
+        public T data;                                      // ข้อมูลใน Node
+        public ListNode<T> next;                            // ตัวชี้ไปยัง Node ถัดไป
 
         public ListNode(T data) {
             this.data = data;
@@ -90,8 +90,5 @@ public class Singly_Linked {
             this.data = data;
             this.next = next;
         }
-
-
     }
-
 }
