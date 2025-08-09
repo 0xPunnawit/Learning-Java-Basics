@@ -3,7 +3,7 @@ package LinkedList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Singly_Linked {
+public class SinglyLinkedList {
 
     public static void main(String[] args) {
 //        PNWJV สร้าง linked list
@@ -86,7 +86,7 @@ public class Singly_Linked {
             this.data = data;
         }
 
-        public ListNode(T data, ListNode next) {
+        public ListNode(T data, ListNode<T> next) {
             this.data = data;
             this.next = next;
         }
