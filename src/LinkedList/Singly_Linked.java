@@ -3,7 +3,7 @@ package LinkedList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Playground {
+public class Singly_Linked {
 
     public static void main(String[] args) {
 //        PNWJV สร้าง linked list
