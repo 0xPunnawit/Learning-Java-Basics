@@ -86,7 +86,7 @@ public class DoublyLinkedList {
                 return null;
             }
 
-            var nextHea = this.head.next;                       // เก็บตัวชี้ไปยัง Node ถัดไป
+            var nextHea = this.head.next;                   // เก็บตัวชี้ไปยัง Node ถัดไป
             var nextHead = this.head.next;                  // เก็บตัวชี้ไปยัง Node ถัดไป
             this.head.next = nextHead.next;                 // เชื่อม head ไปยัง Node ถัดไป
             nextHead.next.prev = this.head;                 // เชื่อม Node ถัดไปไปยัง head
