@@ -9,14 +9,13 @@ public class queueDemo {
         var queue = new OwnQueue();
         var nums = List.of(1, -4, 9, -16, 25);
 
-        // ใช้ enqueue เพื่อเพิ่มข้อมูลลงในคิว
         for (var num : nums) {
-            queue.enqueue(num); // เพิ่มค่าในคิว
+            queue.enqueue(num);
         }
 
         // ใช้ dequeue เพื่อดึงข้อมูลออกจากคิวและแสดงผล
         for (int i = 0; i < nums.size(); i++) {
-            System.out.println(queue.dequeue()); // ดึงข้อมูลจากคิว
+            System.out.println(queue.dequeue());
         }
     }
 
