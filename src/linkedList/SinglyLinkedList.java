@@ -75,7 +75,7 @@ public class SinglyLinkedList {
             traverResult.add(currNode.data);                // เก็บข้อมูลใน List
             currNode = currNode.next;                       // เลื่อน currNode ไปที่ Node ถัดไป
         }
-        return String.join("->", traverResult);     // ส่งคืนข้อมูลที่เก็บใน List โดยเชื่อมข้อมูลแต่ละตัวด้วย "->"
+        return String.join("->", traverResult);
     }
 
     private static class ListNode<T> {
