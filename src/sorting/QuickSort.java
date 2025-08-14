@@ -1,0 +1,36 @@
+package sorting;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class QuickSort {
+
+    public static void main(String[] args) {
+        // สร้าง array จาก List โดยใช้ Util.listToIntArray
+        var array = Util.listToIntArray(List.of(26, 8, 54, 37, 12, 78));
+
+        // เรียก insertion sort บน array ที่ถูก clone เพื่อป้องกันการแก้ไข array ต้นฉบับ
+        insertionSort(cloneArray(array));
+
+    }
+
+    // สร้างสำเนา array ใหม่ (deep copy) เพื่อป้องกันการแก้ไขของ array เดิม
+    private static int[] cloneArray(int[] array) {
+        return Arrays.copyOfRange(array, 0, array.length);
+    }
+
+    // จัดเรียงข้อมูลแบบ Insertion Sort
+    private static void insertionSort(int[] array) {
+        // เริ่มจาก index 1 เพราะ index 0 มีค่าเดียวอยู่แล้วถือว่าเรียงแล้ว
+        for (int i = 1; i < array.length; i++) {
+            var j = i;
+            // เลื่อนค่าไปทางซ้ายจนกว่าค่าจะอยู่ในตำแหน่งที่ถูกต้อง
+            while (j > 0 && array[j] < array[j - 1]) {
+                Util.swap(array, j, j - 1); // สลับตำแหน่ง
+                j--; // เลื่อนตัวเปรียบเทียบไปทางซ้าย
+            }
+        }
+        // แสดงผลลัพธ์หลังการ sort
+        System.out.println("Insertion Sort: " + Arrays.toString(array));
+    }
+}
