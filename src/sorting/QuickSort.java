@@ -9,10 +9,17 @@ public class QuickSort {
         // สร้าง array จาก List โดยใช้ Util.listToIntArray
         var array = Util.listToIntArray(List.of(26, 8, 54, 37, 12, 78));
 
+        // ============== Quadratic time Complexity: O(n^2) ==============
         // เรียก insertion sort บน array ที่ถูก clone เพื่อป้องกันการแก้ไข array ต้นฉบับ
-        insertionSort(cloneArray(array));
+        insertionSortExample(cloneArray(array));
         System.out.println();
         selectionSortExample(cloneArray(array));
+        System.out.println();
+        bubbleSortExample(cloneArray(array));
+        System.out.println();
+        // ===============================================================
+
+        // ============== Linear time Complexity: O(n) ==============
 
     }
 
@@ -22,7 +29,7 @@ public class QuickSort {
     }
 
     // จัดเรียงข้อมูลแบบ Insertion Sort
-    private static void insertionSort(int[] array) {
+    private static void insertionSortExample(int[] array) {
         // เริ่มจาก index 1 เพราะ index 0 มีค่าเดียวอยู่แล้วถือว่าเรียงแล้ว
         for (int i = 1; i < array.length; i++) {
             var j = i;
@@ -50,4 +57,34 @@ public class QuickSort {
         }
         System.out.println("Selection Sort: " + Arrays.toString(array));
     }
+
+    // จัดเรียงข้อมูลแบบ Bubble Sort
+    private static void bubbleSortExample(int[] array) {
+
+        for (int i = array.length - 1; i >= 0; i--) {
+            // i => consideration index
+            // j => bubble value
+            for (int j = 0; j < i; j++) {
+                if (array[j] > array[j + 1]) {
+                    Util.swap(array, j, j + 1);
+                }
+            }
+
+
+
+        }
+
+        System.out.println("Bubble Sort: " + Arrays.toString(array));
+    }
+
+    private static void quickSortExample(int[] array) {
+
+
+    }
+
+    private static void mergeSortExample(int[] array) {
+
+    }
+
+
 }
