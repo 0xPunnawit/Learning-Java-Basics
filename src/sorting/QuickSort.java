@@ -11,6 +11,8 @@ public class QuickSort {
 
         // เรียก insertion sort บน array ที่ถูก clone เพื่อป้องกันการแก้ไข array ต้นฉบับ
         insertionSort(cloneArray(array));
+        System.out.println();
+        selectionSortExample(cloneArray(array));
 
     }
 
@@ -32,5 +34,20 @@ public class QuickSort {
         }
         // แสดงผลลัพธ์หลังการ sort
         System.out.println("Insertion Sort: " + Arrays.toString(array));
+    }
+
+    // จัดเรียงข้อมูลแบบ Selection Sort
+    private static void selectionSortExample(int[] array) {
+
+        for (int i = array.length - 1; i >= 0; i--) {
+            int largestIndex = 0;
+            for (int j = 0; j <= i; j++) {
+                if (array[j] > array[largestIndex]) {
+                    largestIndex = j;
+                }
+            }
+            Util.swap(array, i, largestIndex);
+        }
+        System.out.println("Selection Sort: " + Arrays.toString(array));
     }
 }

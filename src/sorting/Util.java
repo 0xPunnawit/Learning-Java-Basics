@@ -19,6 +19,6 @@ public class Util {
         int tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;
-        System.out.println(Arrays.toString(arr));
+//        System.out.println(Arrays.toString(arr));
     }
 }
