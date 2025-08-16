@@ -11,15 +11,24 @@ public class QuickSort {
 
         // ============== Quadratic time Complexity: O(n^2) ==============
         // เรียก insertion sort บน array ที่ถูก clone เพื่อป้องกันการแก้ไข array ต้นฉบับ
+        System.out.println("Original array: " + Arrays.toString(array));
         insertionSortExample(cloneArray(array));
         System.out.println();
+
+        System.out.println("Original array: " + Arrays.toString(array));
         selectionSortExample(cloneArray(array));
         System.out.println();
+
+        System.out.println("Original array: " + Arrays.toString(array));
         bubbleSortExample(cloneArray(array));
         System.out.println();
-        // ===============================================================
 
         // ============== Linear time Complexity: O(n) ==============
+        System.out.println("Original array: " + Arrays.toString(array));
+        quickSortExample(cloneArray(array));
+        System.out.println();
+//        mergeSortExample(cloneArray(array));
+//        System.out.println();
 
     }
 
@@ -78,12 +87,45 @@ public class QuickSort {
     }
 
     private static void quickSortExample(int[] array) {
+        quickSort(array, 0, array.length - 1);
+        System.out.println("Quick Sort: " + Arrays.toString(array));
+    }
 
+    private static void quickSort(int[] array, int left, int right) {
+        if (left < right) {
+            int partitionIndex = findPartitionIndex(array, left, right);
+            // Left
+            quickSort(array, left, partitionIndex - 1);
+            // Right
+            quickSort(array, partitionIndex + 1, right);
+        }
+    }
 
+    private static int findPartitionIndex(int[] array, int left, int right) {
+        int pivotIndex = left;
+        int leftPointer = pivotIndex + 1;
+        int rightPointer = right;
+        // Do until it's cross
+        while (leftPointer <= rightPointer) {
+            while (leftPointer <= right && array[leftPointer] < array[pivotIndex]) {
+                leftPointer++;
+            }
+            while (leftPointer <= rightPointer && array[rightPointer] > array[pivotIndex]) {
+                rightPointer--;
+            }
+            if (leftPointer < rightPointer) {
+                Util.swap(array, leftPointer, rightPointer);
+
+            }
+        }
+        Util.swap(array, pivotIndex, rightPointer);
+        return rightPointer;
     }
 
     private static void mergeSortExample(int[] array) {
 
+
+        System.out.println("Merge Sort: " + Arrays.toString(array));
     }
 
 
