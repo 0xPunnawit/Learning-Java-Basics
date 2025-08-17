@@ -1,4 +1,4 @@
-package linkedList;
+package dsa.linkedList;
 
 import java.util.ArrayList;
 import java.util.List;

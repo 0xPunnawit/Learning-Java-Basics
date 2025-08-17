@@ -1,4 +1,4 @@
-package search;
+package dsa.search;
 
 import java.util.List;
 

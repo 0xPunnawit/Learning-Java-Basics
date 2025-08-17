@@ -1,4 +1,4 @@
-package recursion;
+package dsa.recursion;
 
 import java.time.Duration;
 import java.time.Instant;
