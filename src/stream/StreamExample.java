@@ -1,6 +1,7 @@
 package stream;
 
 import java.util.List;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -35,7 +36,7 @@ public class StreamExample {
         // 99 * 2 = 198
         System.out.println(result);
 
-// ============================================================================
+    // ============================================================================
 
         // Alternative: ใช้ IntStream (primitive stream)
         var intStream = IntStream.of(1, 3, 5, 7, 6, 2, 34, 25, 44, 99);
@@ -49,6 +50,28 @@ public class StreamExample {
                 Collectors.groupingBy(Function.identity(), Collectors.counting())
         );
         System.out.println(countFrequency); // Output {orange=1, banana=2, cherry=1, apple=3}
+
+        // ============================================================================
+
+        List<Student> students = List.of(
+                new Student("John", 'C'),
+                new Student("Jane", 'B'),
+                new Student("Mark", 'B'),
+                new Student("Alice", 'D'),
+                new Student("Bob", 'A')
+        );
+
+        // Filter only A - B => Show as hashMap
+        var interestGrade = Set.of('A', 'B');
+        var studentMap = students.stream()
+                .filter(s -> interestGrade.contains(s.grade))
+                .collect(Collectors.groupingBy(s -> s.grade));
+
+        // Output {A=[Student[name=Bob, grade=A]], B=[Student[name=Jane, grade=B], Student[name=Mark, grade=B]]}
+        System.out.println(studentMap);
+    }
+
+    private record Student(String name, char grade) {
 
     }
 
