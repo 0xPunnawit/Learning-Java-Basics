@@ -12,7 +12,6 @@ public class SocketExample {
         System.out.println("""
                 Server: 1
                 Client: 2
-                Server (VT): 3
                 """);
         System.out.print("Your choice: ");
         Scanner sc = new Scanner(System.in);
